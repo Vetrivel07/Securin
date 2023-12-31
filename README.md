@@ -1,5 +1,7 @@
-## ProblemStatement:TheDoomedDiceChallenge
+## Securin Assessment
 
-# Programming language : Python
+### ProblemStatement : TheDoomedDiceChallenge
+
+### Programming language : Python
 
 
