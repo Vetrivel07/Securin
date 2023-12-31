@@ -1,0 +1,31 @@
+# Declaring values directly
+A = [1, 2, 3, 4, 5, 6]     
+# Declaring values using a for loop
+B=[i  for i in range(1,7)]
+# Calculate the total combinations
+tc = len(A) * len(B)
+#Declaring dictionaries for distribution and probability
+dis = {}
+pro={}
+for i in A:
+    for j in B:
+        # Calculate the sum for each combination 
+        sum = i + j
+        # Update in dictionary dis
+        if sum in dis:
+            dis[sum] += 1
+        else:
+            dis[sum] = 1
+# Calculate the probability for each sum
+for sum, comb in dis.items():
+    p = comb / tc
+    pro[sum] = p
+
+# Print the probability
+print("Probability of Sums:")
+
+for sum, prob in pro.items():
+    print(f"P(Sum={sum}): {prob:.2f} (1/{int(1/prob)})")
+
+#explanation:
+#Thus, Python code calculates the probability for each sum by dividing the combinations of each sum by the total number of combinations. It then prints the probability of each sum, along with the corresponding fraction (1/X) representation.

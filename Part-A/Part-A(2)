@@ -1,0 +1,20 @@
+# Declaring values directly
+A = [1, 2, 3, 4, 5, 6]     
+# Declaring values using a for loop
+B=[i  for i in range(1,7)]
+dis = {}
+for i in A:
+    for j in B:
+        # Calculate the sum for each combinations 
+        sum = i + j
+        # Update in dictionary dis
+        if sum in dis:
+            dis[sum] += 1
+        else:
+            dis[sum] = 1
+print("Distribution of Combinations:")
+for sum, comb in dis.items():
+    print(f"The Sum {sum} has occurred in {comb} combinations")
+
+#explanation:
+#Thus, the above Python code calculates the distribution of all possible combinations by iterating through each pair of faces on both dies, adding the values, and updating a dictionary to keep track of the combinations of each sum. Thus, in the end we will be print the sum and number of combinations has occurred for that sum in the end.
