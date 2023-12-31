@@ -28,4 +28,4 @@ for sum, prob in pro.items():
     print(f"P(Sum={sum}): {prob:.2f} (1/{int(1/prob)})")
 
 #explanation:
-#Thus, Python code calculates the probability for each sum by dividing the combinations of each sum by the total number of combinations. It then prints the probability of each sum, along with the corresponding fraction (1/X) representation.
+#Thus, Python code calculates the probability for each sum by dividing the combinations of each sum "comb" by the total number of combinations "tc". I previously calculated all the possible combinations and now I use them to calculate the probability by the simple division method "comb/tc". They were stored in the dictionary called "pro". So finally it prints the probability of each sum, along with the corresponding fraction (1/X) representation.

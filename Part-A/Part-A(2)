@@ -17,4 +17,4 @@ for sum, comb in dis.items():
     print(f"The Sum {sum} has occurred in {comb} combinations")
 
 #explanation:
-#Thus, the above Python code calculates the distribution of all possible combinations by iterating through each pair of faces on both dies, adding the values, and updating a dictionary to keep track of the combinations of each sum. Thus, in the end we will be print the sum and number of combinations has occurred for that sum in the end.
+#The above Python code calculates the distribution of all possible combinations by iterating through each pair of faces on both dies, I have created the dictionary "dis" and updating the sum value accordingly to keep track of the combination of each sum. Thus, in the end I printed the sum and number of combinations has occurred for that sum in the end.

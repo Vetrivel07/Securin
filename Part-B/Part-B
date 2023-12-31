@@ -1,0 +1,68 @@
+def func(dice1_roll, dice2_roll):
+    """Just a simple function to calculate the sum of two dice rolls"""
+    return dice1_roll + dice2_roll
+
+def getProbability(dice1, dice2):
+    """Returns the probability of each sum of two dice rolls"""
+    combinations = []
+    sums = []
+    count = 0
+    for i in dice1:
+        row = []
+        for j in dice2:
+            row.append([i,j])
+            sum = func(i,j)
+            sums.append(sum)
+            count += 1
+        combinations.append(row)    
+    print("Number of possible combinations: ", count)    
+    for i in combinations:
+        print(*i)
+    print("Possible sums: ", *sorted(set(sums)))
+    probabilities = []
+    for i in list(set(sums)):
+        probabilities.append([i, "[{1} / {2}]".format(i, sums.count(i), count)])
+    return probabilities
+
+def generateCombinations(iterable, r):
+    """Generates all possible combinations of r elements from an iterable list. Meant to replace itertools.combinations()"""
+    pool = list(iterable)
+    n = len(pool)
+    if r > n:
+        return []
+    combinations = []
+    indices = list(range(r))
+    while True:
+        combination = [pool[i] for i in indices]
+        combinations.append(tuple(combination))
+        for i in reversed(range(r)):
+            if indices[i] != i + n - r:
+                break
+        else:
+            break
+        indices[i] += 1
+        for j in range(i + 1, r):
+            indices[j] = indices[j - 1] + 1
+    return combinations
+
+dice1 = [1,2,3,4,5,6]
+dice2 = [1,2,3,4,5,6]
+
+original_probabilities = getProbability(dice1, dice2)
+
+new_dice1_permutations = set(generateCombinations([int(i) for i in "111111222222333333444444"], 6))
+new_dice2_permutations = generateCombinations(list(range(1, 12)), 6)
+
+for i in new_dice1_permutations:
+    for j in new_dice2_permutations:
+        current_probabilities = getProbability(i, j)
+        if current_probabilities == original_probabilities:
+            print("Found a match!")
+            print("Dice 1: ", i)
+            print("Dice 2: ", j)
+            exit()
+        else:
+            print("No match found.")
+
+#explanation
+#
