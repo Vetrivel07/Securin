@@ -65,4 +65,4 @@ for i in new_dice1_permutations:
             print("No match found.")
 
 #explanation
-#
+#To find the new set of dice matching the probabilities, we simply stick with a brute-force approach that calculates the unique sum list and then stops when finds a match.
